@@ -86,7 +86,6 @@ const AddProduct = () => {
         </div>
 
         <div className={styles.productDetails__container}>
-          <h2>VIEW PRODUCTS</h2>
           <ProductDetails
             productLists={productsData}
             editProduct={editProduct}
