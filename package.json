@@ -16,7 +16,7 @@
   "scripts": {
     "start": "set PORT=3010 && react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "mocha",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "json-loader": "^0.5.7",
+    "mocha": "^10.0.0",
     "sass": "^1.53.0"
   }
 }

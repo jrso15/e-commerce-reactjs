@@ -11,8 +11,6 @@ const ProductInformation = () => {
     try {
       const res = await fetch(`http://localhost:3000/products/${id}`);
 
-      console.log("res", res);
-
       const test = await res.json();
 
       setProductData(test);
