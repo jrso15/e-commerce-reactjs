@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import Button from "./Button";
+import styles from "../styles/AddProduct.module.scss";
 
 const EditProductForm = ({ setEditing, currentProduct, updateProduct }) => {
   const [img, setImg] = useState();
@@ -27,75 +29,77 @@ const EditProductForm = ({ setEditing, currentProduct, updateProduct }) => {
         product.image = img;
         updateProduct(product.id, product);
       }}
+      className={styles.productDetails__container_form}
     >
-      <label>Product Name</label>
-      <input
-        className="field"
-        type="text"
-        name="productName"
-        value={product.productName}
-        onChange={handleInputChange}
-      />
-      <label>Quantity</label>
-      <input
-        className="field"
-        type="text"
-        name="quantity"
-        value={product.quantity}
-        onChange={handleInputChange}
-      />
+      <div className={styles.fields}>
+        <input
+          className="field"
+          type="text"
+          name="productName"
+          placeholder="Product Name"
+          value={product.productName}
+          onChange={handleInputChange}
+        />
 
-      <label>Price</label>
-      <input
-        className="field"
-        type="text"
-        name="price"
-        value={product.price}
-        onChange={handleInputChange}
-      />
+        <input
+          className="field"
+          type="text"
+          name="quantity"
+          placeholder="Quantity"
+          value={product.quantity}
+          onChange={handleInputChange}
+        />
 
-      <label>Date Added</label>
-      <input
-        className="field"
-        type="date"
-        name="dateAdded"
-        value={product.dateAdded}
-        onChange={handleInputChange}
-      />
+        <input
+          className="field"
+          type="text"
+          name="price"
+          placeholder="Price"
+          value={product.price}
+          onChange={handleInputChange}
+        />
 
-      <label>Image</label>
-      <input
-        type="file"
-        multiple
-        accept="image/*"
-        onInput={handleImageChange}
-      />
+        <textarea
+          className={styles.textArea}
+          name="description"
+          placeholder="Description"
+          value={product.description}
+          onChange={handleInputChange}
+        />
 
-      <label>description</label>
-      <input
-        className="field"
-        type="text"
-        name="description"
-        value={product.description}
-        onChange={handleInputChange}
-      />
+        <textarea
+          className={styles.textArea}
+          name="longDescription"
+          placeholder="Long description"
+          value={product.longDescription}
+          onChange={handleInputChange}
+        />
 
-      <label>long description</label>
-      <input
-        className="field"
-        type="text"
-        name="longDescription"
-        value={product.longDescription}
-        onChange={handleInputChange}
-      />
+        <div className={styles.image}>
+          <label>Date Added:</label>
+          <input
+            className="field"
+            type="date"
+            name="dateAdded"
+            placeholder="Date Added"
+            value={product.dateAdded}
+            onChange={handleInputChange}
+          />
+        </div>
 
-      <button className="btn-update">Update Order</button>
-      <button
-        onClick={() => setEditing(false)}
-        className="btn-update muted-button"
-      >
-        Cancel
-      </button>
+        <div className={styles.image}>
+          <label>Image:</label>
+          <input
+            type="file"
+            multiple
+            accept="image/*"
+            onInput={handleImageChange}
+          />
+        </div>
+      </div>
+
+      <Button name="UPDATE PRODUCT" />
+      <Button name="CANCEL" handleOnClick={() => setEditing(false)} />
     </form>
   );
 };
