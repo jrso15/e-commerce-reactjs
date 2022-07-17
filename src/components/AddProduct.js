@@ -2,7 +2,8 @@ import { useState } from "react";
 import ProductDetails from "./ProductDetails";
 import AddProductForm from "./AddProductForm";
 import EditProductForm from "./EditProductForm";
-import productsData from "../api/products-data.json";
+import productLists from "../api/products-listing.json";
+import styles from "../styles/AddProduct.module.scss";
 
 const AddProduct = () => {
   var today = new Date(),
@@ -24,15 +25,15 @@ const AddProduct = () => {
     longDescription: "",
   };
 
-  const [products, setProducts] = useState(productsData);
+  const [productsData, setProductsData] = useState(productLists.products);
   const [editing, setEditing] = useState(false);
   const [currentProduct, setCurrentproduct] = useState(initialFormState);
 
-  console.log("test", products);
+  console.log("testss", productsData);
 
   const addProduct = (product) => {
-    product.id = products.length + 1;
-    setProducts([...products, product]);
+    product.id = productsData.length + 1;
+    setProductsData([...productsData, product]);
   };
 
   const editProduct = (product) => {
@@ -52,19 +53,21 @@ const AddProduct = () => {
 
   const updateProduct = (id, updatedProduct) => {
     setEditing(false);
-    setProducts(
-      products.map((product) => (product.id === id ? updatedProduct : product))
+    setProductsData(
+      productsData.map((product) =>
+        product.id === id ? updatedProduct : product
+      )
     );
   };
 
   const deleteProduct = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+    setProductsData(productsData.filter((product) => product.id !== id));
   };
 
   return (
-    <div className="container">
-      <div className="product-details">
-        <div className="product-details-list">
+    <>
+      <div className={styles.productDetails}>
+        <div className={styles.productDetails__container}>
           {editing ? (
             <div>
               <h2>EDIT PRODUCT</h2>
@@ -75,23 +78,23 @@ const AddProduct = () => {
               />
             </div>
           ) : (
-            <div>
-              <h3>ADD PRODUCTS</h3>
+            <>
+              <h2>ADD PRODUCTS</h2>
               <AddProductForm addProduct={addProduct} />
-            </div>
+            </>
           )}
         </div>
 
-        <div className="product-details-list">
+        <div className={styles.productDetails__container}>
           <h2>VIEW PRODUCTS</h2>
           <ProductDetails
-            products={products}
+            productLists={productsData}
             editProduct={editProduct}
             deleteProduct={deleteProduct}
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
