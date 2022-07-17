@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 import Cart from "./Cart";
 import productsLists from "../api/products-listing.json";
