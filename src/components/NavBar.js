@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProductList from "./ProductLists";
 import AddProduct from "./AddProduct";
+
 import styles from "../styles/NavBar.module.scss";
 import ProductInformation from "./ProductInformation";
 
@@ -28,16 +29,11 @@ const NavBar = () => {
 
           <ul className={styles.nav__list} ref={showMenu}>
             <li>
-              <Link className="nav-link" to="/">
-                Shop
-              </Link>
+              <Link to="/">Shop</Link>
             </li>
             <li>
-              <Link className="nav-link" to="/addproduct">
-                Add Product
-              </Link>
+              <Link to="/addproduct">Add Product</Link>
             </li>
-            <li>Cart</li>
           </ul>
         </nav>
       </header>
