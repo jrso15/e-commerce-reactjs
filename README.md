@@ -25,3 +25,4 @@ To run the project on your localhost:
 
 To access the link: 
 [https://janille-olegario-ecommerce.netlify.app/](https://janille-olegario-ecommerce.netlify.app/)
+* Note: Inner page for product information might not work in the live link because of the fake server.
