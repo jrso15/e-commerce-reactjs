@@ -29,8 +29,6 @@ const AddProduct = () => {
   const [editing, setEditing] = useState(false);
   const [currentProduct, setCurrentproduct] = useState(initialFormState);
 
-  console.log("testss", productsData);
-
   const addProduct = (product) => {
     product.id = productsData.length + 1;
     setProductsData([...productsData, product]);
