@@ -1,0 +1,50 @@
+.subHeading {
+    width: 91%;
+    margin: 0 auto;
+    display: flex;
+    .title{
+        margin-right: auto;
+        text-transform: uppercase;
+    }
+    h3 {
+        margin-left: auto;
+    }
+}
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    &__list {
+        width: 100%;
+        flex:0 0 44.5%;
+        text-align: center;
+        margin-bottom: 100px;
+        &_thumbnail {
+            // width: 20px;
+            // height: 300px;
+        }
+        &_details {
+            width: 250px;
+            margin: 0 auto;
+            .name {
+                margin-top: 5px;
+                color: #000;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .price {
+                color: #000;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    .productContainer {
+        &__list {
+            flex: 1 0 21%;
+        }
+    }
+}
