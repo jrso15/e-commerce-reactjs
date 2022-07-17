@@ -13,6 +13,23 @@ code {
     monospace;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 , p {
   margin: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 5px 8px 0;
+  box-sizing: border-box;
+}
+
+ input[type=date] {
+  padding: 12px 20px;
+  margin: 8px 5px 8px 0;
+  box-sizing: border-box;
+ }
