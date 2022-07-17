@@ -31,11 +31,13 @@
             list-style-type: none;
             padding: 10px 20px;
             cursor: pointer;
-            color: #fff;
             text-transform: uppercase;
             font-weight: bold;
-            &:hover {
-                color: #bfbfbf;
+            a {
+                color: #fff;
+                &:hover {
+                    color: #bfbfbf;
+                }
             }
         }
         &.show {
@@ -46,6 +48,10 @@
     }
 }
 
+.container {
+    width: 90%;
+    margin: 50px auto;
+}
 
 @media only screen and (min-width: 768px) {
     .nav {
@@ -64,6 +70,9 @@
             top: 5px;
             right: 50px;
         }
+    }
+    .container {
+        width: 95%;
     }
 }
 

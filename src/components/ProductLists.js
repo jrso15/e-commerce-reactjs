@@ -1,38 +1,33 @@
-import products from "../api/products-data.json";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import productsLists from "../api/products-listing.json";
+import styles from "../styles/ProductList.module.scss";
 
 const ProductsList = () => {
   return (
-    <div>
-      <main>
-        <h1 className="title"> Orders List </h1>
-        <div className="sub-heading">
-          <div className="order-title"> ID </div>
-          <div className="order-title"> Products </div>
-          <div className="order-title"> Quantity </div>
-          <div className="order-title"> Price </div>
-          <div className="order-title"> Image </div>
-          <div className="order-title"> Date Added </div>
-          <div className="order-title"> Description </div>
-          <div className="order-title"> longDescription </div>
-        </div>
-        {products.map((product, i) => {
+    <>
+      <h2 className="title"> Product Lists </h2>
+
+      <div className={styles.productContainer}>
+        {productsLists.products.map((product) => {
           return (
-            <div key={i} className="orders-container">
-              <div className="order-list"> {product.id} </div>
-              <div className="order-list"> {product.productName} </div>
-              <div className="order-list"> {product.quantity} </div>
-              <div className="order-list"> PHP {product.price} </div>
-              <div className="order-list">
+            <Link
+              key={product.id}
+              to={"/product/" + product.id}
+              className={styles.productContainer__list}
+            >
+              <div className={styles.productContainer__list_thumbnail}>
                 <img src={product.image} alt={product.name} />
               </div>
-              <div className="order-list"> {product.dateAdded} </div>
-              <div className="order-list"> {product.description} </div>
-              <div className="order-list"> {product.longDescription} </div>
-            </div>
+
+              <div className={styles.productContainer__list_details}>
+                <div className={styles.name}> {product.productName} </div>
+                <div className="product-list"> PHP {product.price} </div>
+              </div>
+            </Link>
           );
         })}
-      </main>
-    </div>
+      </div>
+    </>
   );
 };
 

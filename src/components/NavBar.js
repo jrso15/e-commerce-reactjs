@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProductList from "./ProductLists";
 import AddProduct from "./AddProduct";
 import styles from "../styles/NavBar.module.scss";
+import ProductInformation from "./ProductInformation";
 
 const NavBar = () => {
   const showMenu = React.createRef();
@@ -15,7 +16,9 @@ const NavBar = () => {
       <header>
         <nav className={styles.nav}>
           <div className={styles.nav__icon}>
-            <h2 className={styles.nav__icon_title}>e-commerce</h2>
+            <Link className="nav-link" to="/">
+              <h2 className={styles.nav__icon_title}>Fashion Online Shop</h2>
+            </Link>
             <div className={styles.nav__icon_burger} onClick={clickMenu}>
               <div />
               <div />
@@ -26,7 +29,7 @@ const NavBar = () => {
           <ul className={styles.nav__list} ref={showMenu}>
             <li>
               <Link className="nav-link" to="/">
-                Home
+                Shop
               </Link>
             </li>
             <li>
@@ -39,10 +42,13 @@ const NavBar = () => {
         </nav>
       </header>
 
-      <Routes>
-        <Route path="/" element={<ProductList />} exact />
-        <Route path="/addproduct" element={<AddProduct />} />
-      </Routes>
+      <main className={styles.container}>
+        <Routes>
+          <Route exact path="/" element={<ProductList />} />
+          <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/product/:id" element={<ProductInformation />} />
+        </Routes>
+      </main>
     </Router>
   );
 };

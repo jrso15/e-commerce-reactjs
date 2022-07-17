@@ -1,0 +1,32 @@
+.information {
+    width: 80%;
+    min-height: 600px;
+    margin: 100px auto;
+    &__wrapper {
+        display: flex;
+        &_thumbnail {
+            margin-right: 30px;
+        }
+
+        &_details {
+            .productName {
+                font-size: 3em;
+                font-weight: 900;
+                text-transform: uppercase;
+            }
+            .price {
+                font-weight: 500;
+                font-size: 1.3em;
+            }
+            .description {
+                margin-top: 10px;
+            }
+        }
+    }
+    .longDescription {
+        margin-top: 30px;
+        font-size: 1.1em;
+    }
+}
+
+// {productData.productName}
