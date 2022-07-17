@@ -1,0 +1,33 @@
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    &__list {
+        width: 100%;
+        flex:0 0 44.5%;
+        text-align: center;
+        margin-bottom: 30px;
+        &_thumbnail {
+            // width: 20px;
+            // height: 300px;
+        }
+        &_details {
+            margin-top: 10px;
+            .name {
+                color: #000;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+    .productContainer {
+        &__list {
+            flex: 1 0 21%;
+        }
+    }
+}
